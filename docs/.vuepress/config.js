@@ -2,8 +2,8 @@ module.exports = {
   port:8000,
   title: "技术文档",
   description: "前端技术文档",
-  // base:"./",
-  // dest:"./document",
+  base:"./",
+  dest:"./document",
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
