@@ -30,6 +30,10 @@ module.exports = {
       title: "规范",
       collapsable: true,
       children: ["/pages/commitLint"]
+    }, "pages/微前端", {
+      title: "vue3.0",
+      collapsable: true,
+      children: ["/pages/CompositionAPI"]
     }]
   }
 };

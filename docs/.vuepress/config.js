@@ -23,6 +23,7 @@ module.exports = {
           collapsable: true,
           children: ["/pages/commitLint"],
         },
+        "pages/微前端",
         {
           title: "vue3.0",
           collapsable: true,
