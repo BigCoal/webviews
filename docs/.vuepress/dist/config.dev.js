@@ -4,7 +4,7 @@ module.exports = {
   port: 8000,
   title: "技术文档",
   description: "前端技术文档",
-  base: process.env.NODE_ENV === 'development' ? "" : "./",
+  base: process.env.NODE_ENV === 'development' ? "" : "/",
   dest: process.env.NODE_ENV === 'development' ? "" : "./document",
   head: [['link', {
     rel: 'icon',
@@ -20,13 +20,16 @@ module.exports = {
       link: "/"
     }, {
       text: "前端技术",
-      link: "pages/commitLint"
+      link: "/pages/commitLint"
+    }, {
+      text: "如何更新？",
+      link: "/pages/updateDoc"
     }],
     // 侧边栏
     sidebar: [{
       title: "规范",
       collapsable: true,
-      children: ["pages/commitLint"]
-    }, "pages/updateDoc"]
+      children: ["/pages/commitLint"]
+    }]
   }
 };
