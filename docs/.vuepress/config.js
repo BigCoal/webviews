@@ -23,7 +23,7 @@ module.exports = {
           collapsable: true,
           children: ["pages/commitLint"],
         },
-        "pages/前端文档更新",
+        "pages/updateDoc",
       ],
   }
 };

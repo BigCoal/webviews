@@ -27,6 +27,6 @@ module.exports = {
       title: "规范",
       collapsable: true,
       children: ["pages/commitLint"]
-    }, "pages/前端文档更新"]
+    }, "pages/updateDoc"]
   }
 };
