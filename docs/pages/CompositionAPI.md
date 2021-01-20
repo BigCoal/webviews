@@ -30,9 +30,76 @@ export default {
 
    使用时在setup函数中需要通过内部属性.value来访问ref数据，return出去的ref可直接访问，reactive可以直接通过创建对象访问
 ref接受一个参数，返回响应式ref对象，一般是基本类型值（String 、Nmuber 、Boolean 等）或单值对象。如果传入的参数是一个对象，将会调用 reactive 方法进行深层响应转换（此时访问ref中的对象会返回Proxy对象，说明是通过reactive创建的）；引用类型值（Object 、Array）使用reactive
+
+```
+<template>
+  <div class="contain">
+    <el-button type="primary" @click="numadd">add</el-button>
+    <span>{{ `${state.str}-${num}` }}</span>
+  </div>
+</template>
+
+<script lang="ts">
+  import { reactive, ref } from 'vue';
+  interface State {
+    str: string;
+    list: string[];
+  }
+
+  export default {
+    setup() {
+      const state = reactive<State>({
+        str: 'test',
+        list: [],
+      });
+      //ref需要加上value才能获取
+      const num = ref(1);
+      const numadd = () => {
+        num.value++;
+      };
+      return { state, numadd, num };
+    },
+  };
+</script>
+
+```
 #### 3. toRefs
    将传入的对象里所有的属性的值都转化为响应式数据对象(ref)
    使用reactive return 出去的值每个都需要通过reactive对象 .属性的方式访问,也可以通过解构赋值的方式，但是直接解构的参数不具备响应式，此时可以使用到这个api（也可以对props中的响应式数据做此处理）
+   ```
+   <template>
+  <div class="contain">
+    <el-button type="primary" @click="numadd">add</el-button>
+-    <span>{{ `${state.str}-${num}` }}</span>
++    <span>{{ `${str}-${num}` }}</span>
+  </div>
+</template>
+
+<script lang="ts">
+  import { reactive, ref, toRefs } from 'vue';
+  interface State {
+    str: string;
+    list: string[];
+  }
+
+  export default {
+    setup() {
+      const state = reactive<State>({
+        str: 'test',
+        list: [],
+      });
+      //ref需要加上value才能获取
+      const num = ref(1);
+      const numadd = () => {
+        num.value++;
+      };
+-      return { state, numadd, num };
++      return { ...toRefs(state), numadd, num };
+    },
+  };
+</script>
+
+   ```
 #### 4. toRef
    toRef 用来将引用数据类型或者reavtive数据类型中的某个值转化为响应式数据
 #### 5. isRef
