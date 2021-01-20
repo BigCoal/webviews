@@ -30,6 +30,6 @@ module.exports = {
       title: "规范",
       collapsable: true,
       children: ["/pages/commitLint"]
-    }]
+    }, "pages/微前端"]
   }
 };
