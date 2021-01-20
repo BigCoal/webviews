@@ -2,8 +2,8 @@ module.exports = {
   port:8000,
   title: "技术文档",
   description: "前端技术文档",
-  base:"./",
-  dest:"./document",
+  base:process.env.NODE_ENV === 'development'?"":"./",
+  dest:process.env.NODE_ENV === 'development'?"":"./document",
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
@@ -17,11 +17,13 @@ module.exports = {
       ],
       // 侧边栏
       sidebar: [
+       
         {
           title: "规范",
           collapsable: true,
           children: ["pages/commitLint"],
-        }
+        },
+        "pages/前端文档更新",
       ],
   }
 };

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:dev": "cross-env NODE_ENV=development vuepress dev docs",
+    "docs:build": "cross-env NODE_ENV=production vuepress build docs",
     "node:pro": "node server.js "
   },
   "author": "",
@@ -14,7 +14,8 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "husky": "^4.3.8",
-    "vuepress": "^1.8.0"
+    "vuepress": "^1.8.0",
+    "cross-env": "^7.0.3"
   },
   "husky": {
     "hooks": {
