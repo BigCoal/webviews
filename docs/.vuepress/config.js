@@ -28,6 +28,11 @@ module.exports = {
           title: "vue3.0",
           collapsable: true,
           children: ["/pages/CompositionAPI"]
+        },
+        {
+          title: "TS",
+          collapsable: true,
+          children: ["/pages/typeScript"]
         }
       ]
   }
