@@ -33,6 +33,11 @@ module.exports = {
           title: "TS",
           collapsable: true,
           children: ["/pages/typeScript"]
+        },
+        {
+          title: "ES6",
+          collapsable: true,
+          children: ["/pages/ES6"]
         }
       ]
   }
