@@ -182,7 +182,7 @@ ref接受一个参数，返回响应式ref对象，一般是基本类型值（St
 立即执行传入的一个函数,并响应式追踪其依赖,并在其依赖变更是重新运行该函数.
 
 #### 9. computed
-传入一个getter函数,返回一个默认不可手动修改的ref对象.
+传入一个getter函数,返回一个默认的ref对象.
 ```js {0-20}
 let title = ref('Create');
 const vTitle = computed(() => '-' + title.value + '-');
@@ -202,6 +202,34 @@ setup() {
    return toRefs(state)
  }
 
+```
+`computed支持读写操作`
+
+当给computed传递的是一个方法的时候默认就是只读模式，不可以进行修改操作
+
+```js {0-20}
+// 只读模式操作
+const count = ref(1)
+const plusOne = computed(() => count.value + 1)
+
+console.log(plusOne.value) // 2
+
+plusOne.value++ // 错误！
+```
+想要修改这个值的话就需要使用对象形式的参数，注意{get() =>{}, set() => {}}get和set是搭配使用的，否则会抛出错误
+```js {0-20}
+// 读写模式操作
+const count = ref(1)
+const plusOne = computed({
+  get: () => count.value + 1,
+  set: (val) => {
+    // val是=右边的值 plusOne.value = 1
+    count.value = val - 1
+  },
+})
+
+plusOne.value = 1
+console.log(count.value) // 0
 ```
  #### 10. provide, inject
 provide()和inject()用来实现多级嵌套组件之间的数据传递，父组件或祖先组件使用 provide()向下传递数据，子组件或子孙组件使用inject()来接收数据
