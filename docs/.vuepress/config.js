@@ -42,7 +42,7 @@ module.exports = {
         {
           title: "lodash",
           collapsable: true,
-          children: ["/pages/ES6"]
+          children: ["/pages/lodash"]
         }
       ]
   }
