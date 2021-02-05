@@ -1,7 +1,7 @@
 
 ### ES6(ES 2015)
 
-### 1.let 和const
+## 一、let 和const
 变量声明
 
 ```
@@ -53,7 +53,7 @@ OBJ.a="123"
 ```
 # 总结引用类型相关
 对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址
-### 2.解构赋值
+## 二、解构赋值
 
 1.数组的解构赋值
 
@@ -78,7 +78,7 @@ play()//直接调用
 
 ```
 
-### 3.模版字符串
+## 三、模版字符串
 
 
 ```
@@ -91,7 +91,7 @@ let strs=`${name}`
 1）可以换行
 2）可以拼接变量
 
-### 4.箭头函数
+## 四、箭头函数
 1）this是静态的，this始终指向函数声明是所在作用域
    
 ```
@@ -252,7 +252,7 @@ fn2.call(window,arrArray);//[1, 2, 3] undefined undefined
 fn2.apply(window,arrArray);//1,2,3
 ```
 
-#### 4.参数默认值问题
+## 五、参数默认值问题
 形参初始值(具有默认值的一般位置放在后面‘潜规则’)
 
 ```
@@ -261,7 +261,8 @@ function add(a,b,c=10){
 }
 
 ```
-#### 5.引入 rest参数，用于获取函数的实参
+
+## 六、引入 rest参数，用于获取函数的实参
 
 ```
 function data(...args){
@@ -277,7 +278,7 @@ function data (a,b,...args){
 }
 data(1,2,3,4)
 ```
-#### 6.扩展运算符
+## 七、扩展运算符
 [...]可以讲数组转换成用逗号隔开的参数序列
 
 ```
@@ -319,7 +320,7 @@ cosnt arr2=[...arr1]
 const divs=document.queryselectorAll('div')
 cosnt divArr=[...divs]
 ```
-#### 7.symbol
+## 八、symbol
 引入的一种新的原始数据类型,表示独一无二的值
 - 特点:
 1)symbol的值是唯一的,解决命名冲突
@@ -383,6 +384,23 @@ console.log (game)
 
 ```
 关于symbol的调用问题
+
+
+```
+
+let game={
+    name:"狼人杀",
+    [Symbol('say')]:function(){
+        console.log("可以发言")
+    },
+     [Symbol('kill')]:function(){
+        console.log("可以杀人")
+    }
+}
+game[(Object.getOwnPropertySymbols(game)[0])]();
+
+/**不建议这样写*/
+```
 ```
 
   let say = Symbol('say')
@@ -481,7 +499,7 @@ Object(Symbol("foo")) + "bar";
 ```
 
 
-#### 8.迭代器(iterator)
+## 九、迭代器(iterator)
 迭代器是一个接口为不同数据结构提供访问机制,任何数据结构使用迭代器都可以使用遍历
 
 1)创造了新的遍历命令for...of循环,iterator主要提供 for...of 消费
@@ -508,8 +526,8 @@ const xiyou=['唐僧'，'猪八戒'，'孙悟空'，'沙僧']
      console.log(v)
  }
  
- console.log
- let interator=xiyou[symbol.interator]()
+ console.log(xiyou)
+ let interator=xiyou[symbol.iterator]()
  console.log (interator)
  console.log (interator.next())
  
@@ -530,7 +548,6 @@ const xiyou=['唐僧'，'猪八戒'，'孙悟空'，'沙僧']
 1.推荐在循环对象属性的时候，使用for...in,在遍历数组的时候的时候使用for...of
 2.for...in循环出的是key，for...of循环出的是value
 
-
 let aArray = ['a',123,{a:'1',b:'2'}]
 
 for(let index in aArray){
@@ -541,7 +558,7 @@ for(var value of aArray){
     console.log(value);
 }
 
-<!--便利对象-->
+<!--遍历对象-->
 var student={
     name:'wujunchuan',
     age:22,
@@ -613,7 +630,8 @@ for (let v of banji){
 ```
 
 
-### 9.生成器(generator)
+
+## 十、生成器(generator)
 生成器函数声明与调用
 
 ```
@@ -692,7 +710,7 @@ for (let v of banji){
             }, 2000)
 
         }, 1000)
-        这种如果很多的回调,回到地狱
+        这种如果很多的回调,回调地狱
         解决回到地狱
         function one() {
             setTimeout(() => {
