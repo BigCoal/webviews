@@ -27,7 +27,7 @@ module.exports = {
       {
         title: "vue3.0",
         collapsable: true,
-        children: ["/pages/CompositionAPI", "/pages/扩展"]
+        children: ["/pages/CompositionAPI", "/pages/扩展","/pages/vueRouter@4.x","/pages/vuex@4.x"]
       },
       {
         title: "TS",
