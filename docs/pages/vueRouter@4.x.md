@@ -10,7 +10,7 @@ https://next.router.vuejs.org/guide/#javascript
 ```js {0-20}
 npm install vue-router@4
 ```
-Vue2配合Vue-router3
+#### Vue2配合Vue-router3
 
 ```js {0-20}
 // 1. 定义 (路由) 组件。
@@ -40,7 +40,7 @@ const app = new Vue({
 
 // 现在，应用已经启动了！
 ```
-Vue3配合Vue-router4
+#### Vue3配合Vue-router4
 ```js {0-20}
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来
@@ -68,9 +68,9 @@ app.use(router)
 
 app.mount('#app')
 ```
+![image](https://cloud.knowology.cn:8887/vue3/mode.png)
 
-
-路由组件跳转
+#### 路由组件跳转
 
 vue2.x使用路由选项redirect设置路由自动调整，vue3.x中移除了这个选项，将在子路由中添加一个空路径路由来匹配跳转
 
@@ -115,7 +115,7 @@ vue2.x使用路由选项redirect设置路由自动调整，vue3.x中移除了这
 ]
 
 ```
-捕获所有路由：/:catchAll(.*)
+#### 捕获所有路由：/:catchAll(.*)
 
 捕获所有路由 ( /* ) 时，现在必须使用带有自定义正则表达式的参数进行定义：/:catchAll(.*)
 
@@ -140,7 +140,7 @@ const router = createRouter({
 
 当路由为 /user/a/b 时，捕获到的 params 为 {"a": "a", "catchAll": "/b"}
 
-获取当前路由
+#### 获取当前路由
 
 ```js {0-20}
 import { getCurrentInstance } from 'vue'
@@ -162,5 +162,33 @@ export default {
     }
   }
 }
+ 
+``` 
+#### 动态路由
+router.addRoute(route: RouteRecord)：动态添加路由
 
+router.removeRoute(name: string | symbol)：动态删除路由
+
+router.hasRoute(name: string | symbol): 判断路由是否存在
+
+router.getRoutes(): 获取路由列表
+``` js {0-20}
+router.addRoute({ path: '/about', name: 'about', component: About })
+// name 应该是唯一的。会先删除原路由再添加新路由
+router.addRoute({ path: '/other', name: 'about', component: Other })
+
+const removeRoute = router.addRoute(routeRecord)
+// 删除添加的路由
+removeRoute()
+
+router.addRoute({ path: '/about', name: 'about', component: About })
+// 添加的时候有name的话，可以直接使用删除对应name的路由
+router.removeRoute('about')
+
+// 嵌套路由
+router.addRoute({ name: 'admin', path: '/admin', component: Admin })
+// 第一个参数admin是父路由的名称
+router.addRoute('admin', { path: 'settings', component: AdminSettings })
+
+const routeRecords = router.getRoutes()
 ```
