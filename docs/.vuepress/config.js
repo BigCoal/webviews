@@ -44,7 +44,12 @@ module.exports = {
         collapsable: true,
         children: ["/pages/lodash"]
       },
-      "pages/熟悉Webpack"
+      "pages/熟悉Webpack",
+      {
+        title: "Javascript",
+        collapsable: true,
+        children: ["/pages/任务队列"]
+      },
     ]
   }
 };
