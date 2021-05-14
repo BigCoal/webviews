@@ -3,15 +3,18 @@
     husky：https://typicode.github.io/husky/#/
     commitlint：https://github.com/conventional-changelog/commitlint
 ### 安装
-    npm install --save-dev husky @commitlint/config-conventional @commitlint/cli
+```
+  npm install --save-dev husky @commitlint/config-conventional @commitlint/cli
+```
+  
 ### 说明
 #### Husky
 提交钩子Husky的用法，在代码被提交到Git仓库之前，我们可以在这里做一些预检查或者格式化，需要做这些操作，我们需要一个Git的提交钩子，简单说就是使用Git命令会触发的函数。
 ### 配置
 
 #### husky
-```
-package.json
+```js
+//package.json
 
 {
     "husky": {
@@ -32,8 +35,8 @@ package.json
 #### commitlint
 ##### 配置
 
-```
-commitlint.config.js
+``` js
+//commitlint.config.js
 
 /**基本说明：
 0:忽略规则  1:触发警告  2:抛出错误
@@ -80,7 +83,7 @@ module.exports = {
 ##### 格式
 每个 commit message 包含一个 header, 一个 body 和一个 footer。header由 type，subject 组成。默认type,subject必填，body 和 footer 选填。
 
-```
+``` html
 【<type>】<subject>
 <BLANK LINE>
 <body>

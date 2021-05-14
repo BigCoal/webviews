@@ -17,11 +17,20 @@ module.exports = {
       {text: "如何更新？", link: "/pages/updateDoc"}
     ],
     // 侧边栏
-    sidebar: [
+    sidebar: 
+    [
+      {
+        title: "Javascript",
+        collapsable: true,
+        children: [
+          "/pages/Javascript/任务队列",
+          "/pages/Javascript/Promise原理解析",
+        ]
+      },
       {
         title: "规范",
         collapsable: true,
-        children: ["/pages/commitLint"],
+        children: ["/pages/Rule/commitLint"],
       },
       "pages/微前端",
       {
@@ -45,11 +54,7 @@ module.exports = {
         children: ["/pages/lodash"]
       },
       "pages/熟悉Webpack",
-      {
-        title: "Javascript",
-        collapsable: true,
-        children: ["/pages/任务队列"]
-      },
+      
     ]
   }
 };
