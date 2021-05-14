@@ -13,7 +13,7 @@ module.exports = {
     searchMaxSuggestions: 10,
     nav: [
       {text: "首页", link: "/"},
-      {text: "前端技术", link: "/pages/commitLint"},
+      {text: "前端技术", link: "/pages/Rule/commitLint"},
       {text: "如何更新？", link: "/pages/updateDoc"}
     ],
     // 侧边栏
