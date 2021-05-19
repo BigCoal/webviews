@@ -25,6 +25,12 @@ module.exports = {
         children: [
           "/pages/Javascript/任务队列",
           "/pages/Javascript/Promise原理解析",
+          {
+            title: "性能优化",
+            collapsable: true,
+            children: [ "/pages/Javascript/缓存机制"],
+          },
+         
         ]
       },
       {
