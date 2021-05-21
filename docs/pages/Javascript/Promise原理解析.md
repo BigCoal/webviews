@@ -2,59 +2,199 @@
 
 # Promise原理解析
 
+## 基础练习（先通过几道题练习下基础，基础不过关建议看下：https://es6.ruanyifeng.com/#docs/promise）
+
+### 练习一
+
+```js
+ new Promise((resolve, reject) => {
+  console.log("外部promise");
+  resolve("ok");
+  reject("报错了");
+})
+  .then((res) => {
+      console.log("外部第一个then" + res);
+  }, (err) => {
+      console.log("报错了1" + err)
+  })
+  .then(() => {
+      console.log("外部第二个then");
+  }).catch(err => {
+      console.log("报错了2" + err)
+  }).finally(res=>{
+            console.log("最终")
+    });
+```
+
+### 练习二
+```js
+new Promise((resolve, reject) => {
+  console.log("外部promise");
+  resolve("ok");
+})
+  .then((res) => {
+    console.log("外部第一个then"+res);
+    return new Promise((resolve, reject) => {
+      console.log("内部promise");
+      resolve();
+    })
+    .then(() => {
+    console.log("内部第一个then");
+    })
+    .then(() => {
+    console.log("内部第二个then");
+    });
+  })
+  .then(() => {
+    console.log("外部第二个then");
+  }).catch(err=>{
+    console.log(err)
+  });
+```
+
+### 练习三
+```js
+new Promise((resolve, reject) => {
+  console.log("外部promise");
+  resolve();
+})
+  .then(() => {
+    console.log("外部第一个then");
+    new Promise((resolve, reject) => {
+      console.log("内部promise");
+      resolve();
+    })
+      .then(() => {
+        console.log("内部第一个then");
+      })
+      .then(() => {
+        console.log("内部第二个then");
+      });
+  })
+  .then(() => {
+    console.log("外部第二个then");
+  });
+```
+### 练习四
+```js
+new Promise((resolve, reject) => {
+  console.log("外部promise");
+  resolve();
+})
+  .then(() => {
+    console.log("外部第一个then");
+    let p = new Promise((resolve, reject) => {
+      console.log("内部promise");
+      resolve();
+    })
+    p.then(() => {
+        console.log("内部第一个then");
+      })
+    p.then(() => {
+        console.log("内部第二个then");
+      });
+  })
+  .then(() => {
+    console.log("外部第二个then");
+  });
+```
+
+### 练习五
+```js
+let p = new Promise((resolve, reject) => {
+  console.log("外部promise");
+  resolve();
+})
+p.then(() => {
+    console.log("外部第一个then");
+    new Promise((resolve, reject) => {
+      console.log("内部promise");
+      resolve();
+    })
+      .then(() => {
+        console.log("内部第一个then");
+      })
+      .then(() => {
+        console.log("内部第二个then");
+      });
+  })
+p.then(() => {
+    console.log("外部第二个then");
+  });
+```
+
+### 练习六
+```js
+new Promise((resolve, reject) => {
+  console.log("外部promise");
+  resolve();
+})
+.then(() => {
+    console.log("外部第一个then");
+    new Promise((resolve, reject) => {
+        console.log("内部promise");
+        resolve();
+    })
+    .then(() => {
+        console.log("内部第一个then");
+    })
+    .then(() => {
+        console.log("内部第二个then");
+    });
+    return new Promise((resolve, reject) => {
+        console.log("内部promise2");
+        resolve();
+    })
+    .then(() => {
+        console.log("内部第一个then2");
+    })
+    .then(() => {
+        console.log("内部第二个then2");
+    });
+})
+.then(() => {
+    console.log("外部第二个then");
+});
+```
+
 ## Promise/A+规范
 Promise表示一个异步操作的最终结果。与Promise最主要的交互方法是通过将函数传入它的then方法从而获取得Promise最终的值或Promise最终最拒绝（reject）的原因。
 
 ### 术语
-promise是一个包含了兼容promise规范then方法的对象或函数，
-thenable 是一个包含了then方法的对象或函数。
-value 是任何Javascript值。 (包括 undefined, thenable, promise等).
-exception 是由throw表达式抛出来的值。
-reason 是一个用于描述Promise被拒绝原因的值。
+Promise是一个包含了兼容promise规范then方法的对象或函数，thenable 是一个包含了then方法的对象或函数。value 是任何Javascript值。 (包括 undefined, thenable, promise等).exception 是由throw表达式抛出来的值。reason 是一个用于描述Promise被拒绝原因的值。
 
 ### 要求
 #### Promise状态
 一个Promise必须处在其中之一的状态：pending, fulfilled 或 rejected.
 
-如果是pending状态,则promise：
+如果是pending状态,则promise：可以转换到fulfilled或rejected状态。
 
-可以转换到fulfilled或rejected状态。
-如果是fulfilled状态,则promise：
 
-不能转换成任何其它状态。
-必须有一个值，且这个值不能被改变。
-如果是rejected状态,则promise可以：
+如果是fulfilled状态,则promise：不能转换成任何其它状态。必须有一个值，且这个值不能被改变。
 
-不能转换成任何其它状态。
-必须有一个原因，且这个值不能被改变。
-”值不能被改变”指的是其identity不能被改变，而不是指其成员内容不能被改变。
+
+如果是rejected状态,则promise可以：不能转换成任何其它状态。必须有一个原因，且这个值不能被改变。
+
 
 #### then 方法
 一个Promise必须提供一个then方法来获取其值或原因。
 Promise的then方法接受两个参数：
-
+```js
 promise.then(onFulfilled, onRejected)
-onFulfilled 和 onRejected 都是可选参数：
+```
+onFulfilled 和 onRejected 都是可选参数,如果onFulfilled不是一个函数，则忽略之。如果onRejected不是一个函数，则忽略之。
 
-如果onFulfilled不是一个函数，则忽略之。
-如果onRejected不是一个函数，则忽略之。
-如果onFulfilled是一个函数:
+如果onFulfilled是一个函数:它必须在promise fulfilled后调用， 且promise的value为其第一个参数。它不能在promise fulfilled前调用。不能被多次调用。
 
-它必须在promise fulfilled后调用， 且promise的value为其第一个参数。
-它不能在promise fulfilled前调用。
-不能被多次调用。
-如果onRejected是一个函数,
+如果onRejected是一个函数,它必须在promise rejected后调用， 且promise的reason为其第一个参数。它不能在promise rejected前调用。不能被多次调用。
 
-它必须在promise rejected后调用， 且promise的reason为其第一个参数。
-它不能在promise rejected前调用。
-不能被多次调用。
-onFulfilled 和 onRejected 只允许在 execution context 栈仅包含平台代码时运行. [3.1].
-onFulfilled 和 onRejected 必须被当做函数调用 (i.e. 即函数体内的 this 为undefined). [3.2]
+onFulfilled 和 onRejected 只允许在 execution context 栈仅包含平台代码时运行. 
+onFulfilled 和 onRejected 必须被当做函数调用 (i.e. 即函数体内的 this 为undefined). 
 对于一个promise，它的then方法可以调用多次.
 
 当promise fulfilled后，所有onFulfilled都必须按照其注册顺序执行。
 当promise rejected后，所有OnRejected都必须按照其注册顺序执行。
-then 必须返回一个promise [3.3].
+then 必须返回一个promise 
 
 promise2 = promise1.then(onFulfilled, onRejected);
 如果onFulfilled 或 onRejected 返回了值x, 则执行Promise 解析流程[[Resolve]](promise2, x).
@@ -801,3 +941,8 @@ let promises = HD.race([p1, p2]).then(
   }
 );
 ```
+
+参考：
+https://es6.ruanyifeng.com/#docs/promise  Promise基础
+https://github.com/then/promise     PromiseA+规范
+https://blog.csdn.net/lqyygyss/article/details/102662606    深度揭秘 Promise 微任务和执行过程
