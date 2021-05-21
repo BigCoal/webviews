@@ -2,7 +2,8 @@
 
 # Promise原理解析
 
-## 基础练习（先通过几道题练习下基础，基础不过关建议看下：https://es6.ruanyifeng.com/#docs/promise）
+## 基础练习
+先通过几道题练习下基础，基础不过关建议看下：https://es6.ruanyifeng.com/#docs/promise
 
 ### 练习一
 
