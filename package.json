@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "cross-env NODE_ENV=development vuepress dev docs",
-    "docs:build": "cross-env NODE_ENV=production vuepress build docs",
+    "dev": "cross-env NODE_ENV=development vuepress dev docs",
+    "build": "cross-env NODE_ENV=production vuepress build docs",
     "node:pro": "node server.js "
   },
   "author": "",

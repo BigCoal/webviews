@@ -25,11 +25,21 @@ module.exports = {
         children: [
           "/pages/Javascript/任务队列",
           "/pages/Javascript/Promise原理解析",
+          "/pages/Javascript/原型到原型链",
           {
             title: "性能优化",
             collapsable: true,
             children: [ "/pages/Javascript/缓存机制"],
           },
+         
+        ]
+      },
+      {
+        title: "Typescript",
+        collapsable: true,
+        children: [
+          "/pages/Typescript/函数",
+          "/pages/Typescript/对象"
          
         ]
       },
@@ -60,7 +70,6 @@ module.exports = {
         children: ["/pages/lodash"]
       },
       "pages/熟悉Webpack",
-      
     ]
   }
 };
