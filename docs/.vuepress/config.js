@@ -26,6 +26,7 @@ module.exports = {
           "/pages/Javascript/任务队列",
           "/pages/Javascript/Promise原理解析",
           "/pages/Javascript/原型到原型链",
+          "/pages/Javascript/词法作用域",
           {
             title: "性能优化",
             collapsable: true,
