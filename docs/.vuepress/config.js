@@ -23,7 +23,9 @@ module.exports = {
         title: "Javascript",
         collapsable: true,
         children: [
+          // "/pages/Javascript/规范",
           "/pages/Javascript/任务队列",
+          "/pages/Javascript/typeof",
           "/pages/Javascript/Promise原理解析",
           "/pages/Javascript/原型到原型链",
           "/pages/Javascript/词法作用域",
@@ -39,8 +41,23 @@ module.exports = {
         title: "Typescript",
         collapsable: true,
         children: [
+          "/pages/Typescript/说明",
+          "/pages/Typescript/基础类型",
           "/pages/Typescript/函数",
-          "/pages/Typescript/对象"
+          "/pages/Typescript/对象",
+          {
+            title: "类型操作",
+            collapsable: true,
+            children: [ 
+              "/pages/Typescript/类型操作/范型操作",
+              "/pages/Typescript/类型操作/KeyOf类型操作",
+              "/pages/Typescript/类型操作/TypeOf类型操作",
+              "/pages/Typescript/类型操作/索引的访问类型",
+              "/pages/Typescript/类型操作/条件类型",
+              "/pages/Typescript/类型操作/映射类型",
+              "/pages/Typescript/类型操作/模板文字类型",
+            ],
+          },
          
         ]
       },
