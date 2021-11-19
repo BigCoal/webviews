@@ -28,13 +28,21 @@ module.exports = {
           "/pages/Javascript/typeof",
           "/pages/Javascript/Promise原理解析",
           "/pages/Javascript/原型到原型链",
-          "/pages/Javascript/词法作用域",
+          {
+            title: "执行上下文系列",
+            collapsable: true,
+            children: [  "/pages/Javascript/词法作用域",
+            "/pages/Javascript/执行上下文栈",
+            "/pages/Javascript/变量对象",
+            "/pages/Javascript/作用域链",
+            "/pages/Javascript/this",],
+          },
+         
           {
             title: "性能优化",
             collapsable: true,
             children: [ "/pages/Javascript/缓存机制"],
           },
-         
         ]
       },
       {
