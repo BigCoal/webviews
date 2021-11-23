@@ -49,23 +49,44 @@ module.exports = {
         title: "Typescript",
         collapsable: true,
         children: [
-          "/pages/Typescript/说明",
-          "/pages/Typescript/基础类型",
-          "/pages/Typescript/函数",
-          "/pages/Typescript/对象",
+          // {
+          //   title: "英文版",
+          //   collapsable: true,
+          //   children: [
+          //     "/pages/Typescript/英文版/说明",
+          //     "/pages/Typescript/英文版/基础类型",
+          //     "/pages/Typescript/英文版/函数",
+          //     "/pages/Typescript/英文版/对象",
+          //     "/pages/Typescript/英文版/class",
+          //     {
+          //       title: "类型操作",
+          //       collapsable: true,
+          //       children: [ 
+          //         "/pages/Typescript/英文版/类型操作/范型操作",
+          //         "/pages/Typescript/英文版/类型操作/KeyOf类型操作",
+          //         "/pages/Typescript/英文版/类型操作/TypeOf类型操作",
+          //         "/pages/Typescript/英文版/类型操作/索引的访问类型",
+          //         "/pages/Typescript/英文版/类型操作/条件类型",
+          //         "/pages/Typescript/英文版/类型操作/映射类型",
+          //         "/pages/Typescript/英文版/类型操作/模板文字类型",
+          //       ],
+          //     },
+          //   ]
+          // },
           {
-            title: "类型操作",
+            title: "中文版",
             collapsable: true,
-            children: [ 
-              "/pages/Typescript/类型操作/范型操作",
-              "/pages/Typescript/类型操作/KeyOf类型操作",
-              "/pages/Typescript/类型操作/TypeOf类型操作",
-              "/pages/Typescript/类型操作/索引的访问类型",
-              "/pages/Typescript/类型操作/条件类型",
-              "/pages/Typescript/类型操作/映射类型",
-              "/pages/Typescript/类型操作/模板文字类型",
-            ],
+            children: [
+              "/pages/Typescript/中文版/handbook/basic-types",
+              "/pages/Typescript/中文版/handbook/interfaces",
+              "/pages/Typescript/中文版/handbook/functions",
+              "/pages/Typescript/中文版/handbook/literal-types",
+              "/pages/Typescript/中文版/handbook/classes",
+              "/pages/Typescript/中文版/handbook/enums",
+              "/pages/Typescript/中文版/handbook/generics",
+            ]
           },
+         
          
         ]
       },
