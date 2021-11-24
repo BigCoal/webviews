@@ -10,7 +10,7 @@ module.exports = {
   themeConfig: {
     logo: "/logo.png",
     search: true, //搜索
-    searchMaxSuggestions: 10,
+    searchMaxSuggestions: 12,
     nav: [
       {text: "首页", link: "/"},
       {text: "前端技术", link: "/pages/Rule/commitLint"},
@@ -74,16 +74,29 @@ module.exports = {
           //   ]
           // },
           {
-            title: "中文版",
+            title: "基本",
             collapsable: true,
+            sidebarDepth:10,
             children: [
-              "/pages/Typescript/中文版/handbook/basic-types",
-              "/pages/Typescript/中文版/handbook/interfaces",
-              "/pages/Typescript/中文版/handbook/functions",
-              "/pages/Typescript/中文版/handbook/literal-types",
-              "/pages/Typescript/中文版/handbook/classes",
-              "/pages/Typescript/中文版/handbook/enums",
-              "/pages/Typescript/中文版/handbook/generics",
+              "/pages/Typescript/handbook/basic-types",
+              "/pages/Typescript/handbook/interfaces",
+              "/pages/Typescript/handbook/functions",
+              "/pages/Typescript/handbook/literal-types",
+              "/pages/Typescript/handbook/classes",
+              "/pages/Typescript/handbook/enums",
+              "/pages/Typescript/handbook/generics",
+            ]
+          },{
+            title: "进阶",
+            collapsable: true,
+            sidebarDepth:10,
+            children: [
+              "/pages/Typescript/reference/advanced-types",
+              "/pages/Typescript/reference/utility-types",
+              "/pages/Typescript/reference/declaration-merging",
+              "/pages/Typescript/reference/mixins",
+              "/pages/Typescript/reference/type-compatibility",
+              "/pages/Typescript/reference/type-inference",
             ]
           },
          
