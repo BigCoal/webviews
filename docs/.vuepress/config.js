@@ -35,9 +35,11 @@ module.exports = {
             "/pages/Javascript/执行上下文栈",
             "/pages/Javascript/变量对象",
             "/pages/Javascript/作用域链",
-            "/pages/Javascript/this",],
+            "/pages/Javascript/this",
+            "/pages/Javascript/深入执行上下文",
+            ],
           },
-         
+          "/pages/Javascript/闭包",
           {
             title: "性能优化",
             collapsable: true,
