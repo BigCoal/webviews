@@ -40,6 +40,16 @@ module.exports = {
             ],
           },
           "/pages/Javascript/闭包",
+          "/pages/Javascript/类数组",
+          // {
+          //   title: "模拟实现系列",
+          //   collapsable: true,
+          //   children: [  
+          //   "/pages/Javascript/bind模拟实现",
+          //   "/pages/Javascript/call和apply的模拟实现",
+          //   "/pages/Javascript/new的模拟实现"
+          //   ],
+          // },
           {
             title: "性能优化",
             collapsable: true,
