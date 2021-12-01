@@ -227,7 +227,7 @@ type T4 = ConstructorParameters<Function>;
 
 ### 例子
 
-```
+```ts
 type T0 = ReturnType<() => string>;  // string
 type T1 = ReturnType<(s: string) => void>;  // void
 type T2 = ReturnType<(<T>() => T)>;  // {}

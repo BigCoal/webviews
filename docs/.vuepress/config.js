@@ -41,15 +41,16 @@ module.exports = {
           },
           "/pages/Javascript/闭包",
           "/pages/Javascript/类数组",
-          // {
-          //   title: "模拟实现系列",
-          //   collapsable: true,
-          //   children: [  
-          //   "/pages/Javascript/bind模拟实现",
-          //   "/pages/Javascript/call和apply的模拟实现",
-          //   "/pages/Javascript/new的模拟实现"
-          //   ],
-          // },
+          {
+            title: "模拟实现系列",
+            collapsable: true,
+            children: [  
+            // 
+            "/pages/Javascript/call和apply的模拟实现",
+            "/pages/Javascript/bind模拟实现",
+            // "/pages/Javascript/new的模拟实现"
+            ],
+          },
           {
             title: "性能优化",
             collapsable: true,
@@ -109,8 +110,33 @@ module.exports = {
               "/pages/Typescript/reference/mixins",
               "/pages/Typescript/reference/type-compatibility",
               "/pages/Typescript/reference/type-inference",
+              "/pages/Typescript/reference/jsx",
+              "/pages/Typescript/reference/modules",
+              "/pages/Typescript/reference/module-resolution",
+              "/pages/Typescript/reference/namespaces",
+              "/pages/Typescript/reference/namespaces-and-modules"
+              
             ]
-          },
+          },{
+            title: "声明文件",
+            collapsable: true,
+            sidebarDepth:10,
+            children: [
+              "/pages/Typescript/declaration-files/introduction",
+              "/pages/Typescript/declaration-files/by-example",
+              "/pages/Typescript/declaration-files/library-structures",
+              "/pages/Typescript/declaration-files/templates",
+            ]
+          },{
+            title: "工程配置",
+            collapsable: true,
+            sidebarDepth:10,
+            children: [
+              "/pages/Typescript/project-config/tsconfig.json",
+              "/pages/Typescript/project-config/project-references",
+              "/pages/Typescript/project-config/compiler-options",
+            ]
+          }
          
          
         ]
