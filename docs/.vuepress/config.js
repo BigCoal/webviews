@@ -20,6 +20,50 @@ module.exports = {
     sidebar: 
     [
       {
+        title: "ES6",
+        collapsable: true,
+        children: [
+          {
+            title: "阮一峰文档",
+            collapsable: true,
+            children: [
+              "/pages/ES6/intro",
+              "/pages/ES6/let",
+              "/pages/ES6/destructuring",
+              "/pages/ES6/string",
+              "/pages/ES6/string-methods",
+              "/pages/ES6/regex",
+              "/pages/ES6/number",
+              "/pages/ES6/function",
+              "/pages/ES6/array",
+              "/pages/ES6/object",
+              "/pages/ES6/object-methods",
+              "/pages/ES6/operator",
+              "/pages/ES6/symbol",
+              "/pages/ES6/set-map",
+              "/pages/ES6/proxy",
+              "/pages/ES6/reflect",
+              "/pages/ES6/promise",
+              "/pages/ES6/iterator",
+              "/pages/ES6/generator",
+              "/pages/ES6/generator-async",
+              "/pages/ES6/async",
+              "/pages/ES6/class",
+              "/pages/ES6/class-extends",
+              "/pages/ES6/module",
+              "/pages/ES6/module-loader",
+              "/pages/ES6/style",
+              "/pages/ES6/spec",
+              "/pages/ES6/async-iterator",
+              "/pages/ES6/arraybuffer",
+              "/pages/ES6/proposals",
+              "/pages/ES6/decorator",
+              "/pages/ES6/reference",
+            ]
+          }
+        ]
+      },
+      {
         title: "Javascript",
         collapsable: true,
         children: [
@@ -48,7 +92,7 @@ module.exports = {
             // 
             "/pages/Javascript/call和apply的模拟实现",
             "/pages/Javascript/bind模拟实现",
-            // "/pages/Javascript/new的模拟实现"
+            "/pages/Javascript/new的模拟实现"
             ],
           },
           {
@@ -151,16 +195,6 @@ module.exports = {
         title: "vue3.0",
         collapsable: true,
         children: ["/pages/CompositionAPI", "/pages/扩展","/pages/vueRouter@4.x","/pages/vuex@4.x"]
-      },
-      {
-        title: "TS",
-        collapsable: true,
-        children: ["/pages/typeScript"]
-      },
-      {
-        title: "ES6",
-        collapsable: true,
-        children: ["/pages/ES6"]
       },
       {
         title: "lodash",
