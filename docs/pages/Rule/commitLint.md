@@ -1,4 +1,4 @@
-### commintList
+### commitlint
 ### 官方文档
     husky：https://typicode.github.io/husky/#/
     commitlint：https://github.com/conventional-changelog/commitlint
