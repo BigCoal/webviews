@@ -1,14 +1,14 @@
 module.exports = {
   port: 8000,
   title: "技术文档",
-  description: "前端技术文档",
+  description: "勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏。",
   base: process.env.NODE_ENV === "development" ? "" : "/",
   dest: process.env.NODE_ENV === "development" ? "" : "./document",
   head: [
     ["link", { rel: "icon", href: "/logo.png" }]
   ],
   themeConfig: {
-    logo: "/logo.png",
+    logo:"/logo.png",
     search: true, //搜索
     searchMaxSuggestions: 12,
     nav: [
@@ -106,6 +106,17 @@ module.exports = {
               title: "性能优化",
               collapsable: true,
               children: ["/pages/Javascript/缓存机制"],
+            },
+            {
+              title: "本地存储和安全",
+              collapsable: true,
+              sidebarDepth: 10,
+              children: [
+                "/pages/Javascript/同源策略",
+                "/pages/Javascript/cookie",
+                "/pages/Javascript/XSS攻击",
+                "/pages/Javascript/CSRF攻击",
+            ],
             },
             {
               title: "类型转换",
@@ -209,7 +220,7 @@ module.exports = {
           title: "工具/效率",
           collapsable: true,
           children: [
-            "/pages/Rule/commitlint",
+            "/pages/Rule/commitLint",
             {
               title: "Jest",
               collapsable: true,
