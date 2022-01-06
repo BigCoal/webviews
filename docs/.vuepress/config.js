@@ -20,6 +20,14 @@ module.exports = {
     sidebar:
       [
         {
+          title: "HTML",
+          collapsable: true,
+          sidebarDepth: 10,
+          children: [
+            "/pages/HTML/client-offset-scroll"
+          ]
+        },
+        {
           title: "ES6",
           collapsable: true,
           children: [
