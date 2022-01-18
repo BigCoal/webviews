@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn
+  /usr/local/bin/node /usr/local/bin/yarn add vuepress-plugin-run
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/Users/zhubaokang/Documents/CODE/Vscode/personal/techDocumentAdmin/node_modules/@commitlint/cli'
+  Error: ENOENT: no such file or directory, copyfile '/usr/local/share/Library/Caches/Yarn/v6/npm-locate-path-6.0.0-55321eb309febbc59c4801d931a72452a681d286-integrity/node_modules/locate-path/license' -> '/Users/zhubaokang/Documents/CODE/Vscode/personal/techDocumentAdmin/node_modules/@commitlint/top-level/node_modules/locate-path/license'
 
 npm manifest: 
   {

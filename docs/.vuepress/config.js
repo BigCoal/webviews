@@ -4,6 +4,14 @@ module.exports = {
   description: "勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏。",
   base: process.env.NODE_ENV === "development" ? "" : "/",
   dest: process.env.NODE_ENV === "development" ? "" : "./document",
+  plugins: [
+    [
+      require('../../src/index'),
+      {
+        reverse: true
+      }
+    ]
+  ],
   head: [
     ["link", { rel: "icon", href: "/logo.png" }]
   ],
@@ -14,7 +22,7 @@ module.exports = {
     nav: [
       { text: "首页", link: "/" },
       { text: "前端技术", link: "/pages/Rule/commitLint" },
-      { text: "如何更新？", link: "/pages/updateDoc" }
+      { text: "GitHub", link: "https://github.com/BigCoal/webviews" }
     ],
     // 侧边栏
     sidebar:
@@ -23,8 +31,17 @@ module.exports = {
           title: "HTML",
           collapsable: true,
           sidebarDepth: 10,
+          toggleSidebar:'sidebar',
           children: [
             "/pages/HTML/client-offset-scroll"
+          ]
+        },
+        {
+          title: "CSS",
+          collapsable: true,
+          sidebarDepth: 10,
+          children: [
+            "/pages/CSS/流、元素与基本尺寸"
           ]
         },
         {

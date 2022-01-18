@@ -15,7 +15,9 @@
     "@commitlint/config-conventional": "^11.0.0",
     "husky": "^4.3.8",
     "vuepress": "^1.8.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "markdown-it-container": "^2.0.0",
+    "vue-run-sfc": "^1.6.0"
   },
   "husky": {
     "hooks": {
