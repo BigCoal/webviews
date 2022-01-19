@@ -1,7 +1,9 @@
-### commitlint
+# commitlint
 ### 官方文档
+```
     husky：https://typicode.github.io/husky/#/
     commitlint：https://github.com/conventional-changelog/commitlint
+```
 ### 安装
 ```
   npm install --save-dev husky @commitlint/config-conventional @commitlint/cli
