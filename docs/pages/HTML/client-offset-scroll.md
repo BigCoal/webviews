@@ -1,31 +1,31 @@
 # offset-client-scroll 三剑客
 
 ## offset(偏移量)
- 
-  - **offsetHeight**
 
-  元素在垂直方向上占用的空间大小，以像素计。包括元素的高度、（可见的）水平滚动条的高度、上边框高度和下边框高度。
+- **offsetHeight**
 
-  - **offsetWidth**: 
+元素在垂直方向上占用的空间大小，以像素计。包括元素的高度、（可见的）水平滚动条的高度、上边框高度和下边框高度。
 
-   元素在水平方向上占用的空间大小，以像素计。包括元素的宽度、（可见的）垂直滚动条的宽度、左边框宽度和右边框宽度。
+- **offsetWidth**:
 
-  - **offsetParent** 
-  
-  偏移参照的定位父级,是当前元素最近的经过定位 (position 不等于 static) 的父级元素,主要有以下几种情况
+元素在水平方向上占用的空间大小，以像素计。包括元素的宽度、（可见的）垂直滚动条的宽度、左边框宽度和右边框宽度。
 
-    - 元素自身有 fixed 定位，offsetParent 的结果为 null
-    - 元素自身无 fixed 定位，且父级元素都未经过定位，offsetParent 的结果为 `<body>`
-    - 元素自身无 fixed 定位，且父级元素存在经过定位的元素，offsetParent 的结果为离自身元素最近的经过定位的父级元素
-    - `<body>` 元素的 parentNode 是 null
+- **offsetParent**
 
-  - **offsetLeft**：
-  
-  元素的左外边框至包含offsetParent元素的左内边框之间的像素距离。  
-  
-  - **offsetTop**：
-  
-  元素的上外边框至包含offsetParent元素的上内边框之间的像素距离。
+偏移参照的定位父级,是当前元素最近的经过定位 (position 不等于 static) 的父级元素,主要有以下几种情况
+
+1. 元素自身有 fixed 定位，offsetParent 的结果为 null
+2. 元素自身无 fixed 定位，且父级元素都未经过定位，offsetParent 的结果为 `<body>`
+3. 元素自身无 fixed 定位，且父级元素存在经过定位的元素，offsetParent 的结果为离自身元素最近的经过定位的父级元素
+4. `<body>` 元素的 parentNode 是 null
+
+- **offsetLeft**：
+
+元素的左外边框至包含 offsetParent 元素的左内边框之间的像素距离。
+
+- **offsetTop**：
+
+元素的上外边框至包含 offsetParent 元素的上内边框之间的像素距离。
 
 ![](../assets/html/images/offset.png)
 
@@ -80,23 +80,21 @@ exp:
 
 ## client(客户区大小)
 
-  - **clientWidth**
-  
-  元素内容区宽度加上左右内边距宽度。 (不计算滚动条)
+- **clientWidth**
 
-  - **clientHeight**
-  
-  元素内容区高度加上上下内边距高度。(不计算滚动条)
+元素内容区宽度加上左右内边距宽度。 (不计算滚动条)
 
-  - **clientTop**
-  
-  元素顶部边框的宽度border-top-width
+- **clientHeight**
 
-  - **clientLeft**
-  
-  元素左侧边框的宽度border-left-width
+元素内容区高度加上上下内边距高度。(不计算滚动条)
 
+- **clientTop**
 
+元素顶部边框的宽度 border-top-width
+
+- **clientLeft**
+
+元素左侧边框的宽度 border-left-width
 
 ![](../assets/html/images/client.png)
 
@@ -161,24 +159,26 @@ exp:
   </body>
 </html>
 ```
+
 ## scroll(滚动大小)
 
-指的是包含滚动内容的元素的大小。  
-  - **scrollHeight**
-  
-  在没有滚动条的情况下，元素内容的总高度。 
+指的是包含滚动内容的元素的大小。
 
-  - **scrollWidth**
-  
-  在没有滚动条的情况下，元素内容的总宽度。  
+- **scrollHeight**
 
-  - **scrollLeft**
-  
-  被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。
+在没有滚动条的情况下，元素内容的总高度。
 
-  - **scrollTop**
-  
-  被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。
+- **scrollWidth**
+
+在没有滚动条的情况下，元素内容的总宽度。
+
+- **scrollLeft**
+
+被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。
+
+- **scrollTop**
+
+被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。
 
 ![](../assets/html/images/scroll.png)
 在确定文档的总高度时（包括基于视口的最小高度时），必须取得[scroll](https://so.csdn.net/so/search?q=scroll)Width/clientWidth 和 scrollHeight/clientHeight 中的最大值，才能保证在跨浏览器的环境下得到精确的结果。下面就是这样一个例子。
@@ -208,8 +208,7 @@ function scrollToTop(element) {
 
 这个函数既取得了 scrollTop 的值，也设置了它的值。
 
-
 ## 思考
- 如何做图片的懒加载
- [参考代码](https://github.com/BigCoal/day-log/tree/master/code%E5%9F%BA%E7%A1%80/html/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD)
- 
+
+如何做图片的懒加载
+[参考代码](https://github.com/BigCoal/day-log/tree/master/code%E5%9F%BA%E7%A1%80/html/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD)
