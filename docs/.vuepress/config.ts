@@ -79,6 +79,28 @@ module.exports = {
                 "/pages/CSS/盒尺寸四大家族/Margin.md",
                 "/pages/CSS/盒尺寸四大家族/Border.md"
               ]
+            },{
+              text: "内联元素和流",
+              collapsible: true,
+              sidebarDepth: 10,
+              children: [
+                "/pages/CSS/内联元素和流/字母x.md",
+                "/pages/CSS/内联元素和流/line-height.md",
+                "/pages/CSS/内联元素和流/vertical-align.md"
+              ]
+            },{
+              text: "流的破坏与保护",
+              collapsible: true,
+              sidebarDepth: 10,
+              children: [
+                "/pages/CSS/流的破坏与保护/魔鬼属性float.md",
+                "/pages/CSS/流的破坏与保护/魔鬼属性float的天然克星clear.md",
+                "/pages/CSS/流的破坏与保护/最佳结界overflow.md",
+                "/pages/CSS/流的破坏与保护/BFC.md",
+                "/pages/CSS/流的破坏与保护/position-absolute.md",
+                "/pages/CSS/流的破坏与保护/position-relative.md",
+                "/pages/CSS/流的破坏与保护/position-fixed.md"
+              ]
             },
           ]
         },
