@@ -1,8 +1,10 @@
-# 魔鬼属性 float 的天然克星 clear
+# 魔鬼属性 float 的克星 clear
 
 ## 什么是 clear
 
-clear 专门用来处理 float 带来的高度坍塌的问题，官方对 clear 属性的解释是：“元素盒子的边不能和`前面`的浮动元素相邻。”，并不是清除浮动，因为浮动一直都在
+`clear` 专门用来处理 float 带来的高度坍塌的问题，官方对 `clear` 属性的解释是：元素盒子的边不能和`前面`的浮动元素相邻。
+
+> clear 属性只有块级元素才有效的,而且 clear 并不是清除浮动，因为浮动一直都在
 
 clear 属性值：
 
@@ -58,7 +60,7 @@ clear 属性值：
 
 ![image](../../assets/css/float/clear2.png)
 
-而针对于 float: right 和 float: left;都可以用 clear:both 进行替换,所以基本上 right 和 left 两个属性是没有作用的
+而针对于 `float: right` 和 `float: left` 都可以用 `clear:both` 进行替换,所以基本上 right 和 left 两个属性是没有作用的
 
 ## 成事不足败事有余的 clear
 
@@ -67,7 +69,7 @@ clear 属性只有块级元素才有效的，而::after 等伪元素默认都是
 ```css
 .clear:after {
   content: "";
-  display: table; //也可以是'block'，或者'list-item'
+  display: table; /** 也可以是'block'，或者'list-item'*/
   clear: both;
 }
 ```
@@ -103,6 +105,7 @@ clear 属性只有块级元素才有效的，而::after 等伪元素默认都是
 ```
 
 ![image](../../assets/css/float/clear3.png)
+
 由于 clear:both 的作用本质是让自己不和 float 元素在一行显示，并不是真正意义上的清除浮动，因此 float 元素一些不好的特性依然存在，主要有以下两点：
 
 1. 如果 clear:both 元素前面的元素就是 float 元素，则 margin-top 负值即使设成-9999px，也不见任何效果。
