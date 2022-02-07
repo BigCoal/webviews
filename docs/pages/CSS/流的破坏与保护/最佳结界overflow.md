@@ -2,7 +2,7 @@
 
 ## overflow 剪裁界限 border box
 
-则当子元素内容超出容器宽度高度限制的时候，剪裁的边界是 border box 的内边缘，而非 padding box 的内边缘
+则当子元素内容超出容器宽度高度限制的时候，剪裁的边界是 `border box` 的内边缘，而非 `padding box` 的内边缘
 
 在 overflow 属性中有一个很经典的不兼容问题，即 Chrome 浏览器下，如果容器可滚动（假设是垂直滚动），则 padding-bottom 也算在滚动尺寸之内，IE 和 Firefox 浏览器忽略 padding-bottom。所以我们在实际项目开发的时候，要尽量避免滚动容器设置 padding-bottom 值，除了样式表现不一致外，还会导致 scrollHeight 值不一样
 ![image](../../assets/css/float/overflow1.png)
@@ -22,7 +22,7 @@
 
 HTML 中有两个标签是默认可以产生滚动条的，一个是根元素`<html>`，另一个是文本域`<textarea>`，这两个的 overflow 都是以 auto 作为默认的属性值
 
-关于浏览器的滚动条，有以下几个小而美的结论。
+关于浏览器的滚动条，有以下几个小而美的结论:
 
 - 在 PC 端，无论是什么浏览器，默认滚动条均来自`<html>`
 
@@ -34,7 +34,7 @@ html {
 }
 ```
 
-注意，上述规则只对 PC 端有效，对于移动端并不一定适用。例如，在 PC 端，对`<html>`标签设置 overflow:hidden 可以隐藏滚动条禁止滚动，但是在移动端基本上无效。在 PC 端，窗体滚动高度可以使用 document.documentElement.scrollTop 获取，但是在移动端，可能就要使用 document.body.scrollTop 获取。
+注意，上述规则只对 PC 端有效，对于移动端并不一定适用。例如，在 PC 端，对`<html>`标签设置 overflow:hidden 可以隐藏滚动条禁止滚动，但是在移动端基本上无效。在 PC 端，窗体滚动高度可以使用 `document.documentElement.scrollTop` 获取，但是在移动端，可能就要使用 `document.body.scrollTop` 获取。
 
 - 滚动条会占用容器的可用宽度或高度
 
@@ -89,36 +89,38 @@ body {
 }
 ```
 
-滚动条是可以自定义的。因为 IE 浏览器的自定义效果实在是比原生的还要难看，就不浪费大家时间了，就此打住。
+- 滚动条是可以自定义的。
 
-倒是支持-webkit-前缀的浏览器可以说说。例如，对于 Chrome 浏览器：
+  因为 IE 浏览器的自定义效果实在是比原生的还要难看，就不浪费大家时间了，就此打住。
 
-- 整体部分，::-webkit-scrollbar；
-- 两端按钮，::-webkit-scrollbar-button；
-- 外层轨道，::-webkit-scrollbar-track；
-- 内层轨道，::-webkit-scrollbar-track-piece；
-- 滚动滑块，::-webkit-scrollbar-thumb；
-- 边角，::-webkit-scrollbar-corner
+  倒是支持-webkit-前缀的浏览器可以说说。例如，对于 Chrome 浏览器：
 
-但是我们平时开发中只用下面 3 个属性:
+  - 整体部分，::-webkit-scrollbar；
+  - 两端按钮，::-webkit-scrollbar-button；
+  - 外层轨道，::-webkit-scrollbar-track；
+  - 内层轨道，::-webkit-scrollbar-track-piece；
+  - 滚动滑块，::-webkit-scrollbar-thumb；
+  - 边角，::-webkit-scrollbar-corner
 
-```css
-::-webkit-scrollbar {
-  /* 血槽宽度 */
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-thumb {
-  /* 拖动条 */
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
-}
-::-webkit-scrollbar-track {
-  /* 背景槽 */
-  background-color: #ddd;
-  border-radius: 6px;
-}
-```
+  但是我们平时开发中只用下面 3 个属性:
+
+  ```css
+  ::-webkit-scrollbar {
+    /* 血槽宽度 */
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    /* 拖动条 */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    /* 背景槽 */
+    background-color: #ddd;
+    border-radius: 6px;
+  }
+  ```
 
 ## 依赖 overflow 的样式表现
 
@@ -148,8 +150,10 @@ body {
 
 下面两种情况可以触发锚点定位行为的发生：
 
-- URL 地址中的锚链与锚点元素对应并有交互行为；
+- URL 地址中的锚链与锚点元素对应并有交互行为
+
   可以让元素定位到浏览器窗体的上边缘
+
   我所知道的基于 URL 地址的锚链（如http://www.ceshi.con/23#1，可以使用 location.hash 获取）实现锚点跳转的方法有两种，一种是`<a>`标签以及 name 属性，还有一种就是使用标签的 id 属性。
 
   ```html
@@ -166,9 +170,10 @@ body {
   <a href="#">返回顶部></a>
   ```
 
-  当锚链是一个简单的#时，会定位到顶部
+  当锚链是一个简单的`#`时，会定位到顶部
 
-- 可 focus 的锚点元素处于 focus 状态。
+- 可 focus 的锚点元素处于 focus 状态
+
   “focus 锚点定位”指的是类似链接或者按钮、输入框等可以被 focus 的元素在被 focus 时发生的页面重定位现象。
 
 ```javascript
@@ -176,9 +181,9 @@ body {
 document.querySelector("input").focus();
 ```
 
-> 注意：当触发 focus 的定位时，时让元素在浏览器窗体范围内显示即可，不一定非是上边缘
+> 注意：当触发 focus 的定位时，是让元素在浏览器窗体范围内显示即可，不一定非是上边缘
 
-### 锚点定位的本质
+锚点定位的本质
 
 锚点定位行为的发生，本质上是通过改变`容器`滚动高度(不是浏览器的滚动高度)或者宽度来实现的。
 锚点定位也可以发生在普通的容器元素上，而且定位行为的发生是由内而外的。
@@ -208,13 +213,14 @@ document.querySelector("input").focus();
 <p><a href="#title">点击测试</a></p>
 ```
 
-当点击 a 标签时，滚动行为由内而外的触发，先触发.box 容器的锚点定位，滚动到底部，再触发.con 的锚点定位，“底部标题”和浏览器窗口的上边缘对齐
+当点击 a 标签时，滚动行为由内而外的触发，先触发 `.box` 容器的锚点定位，滚动到底部，再触发 `.con` 的锚点定位，“底部标题”和浏览器窗口的上边缘对齐
 
 ![image](../../assets/css/float/overflow2.png)
 
-overflow:hidden 也是可以滚动的，只是没有滚动条，在表现上无法滚动而已，如果发生锚点定位，或者改变 scrollTop 的值，就会发生滚动行为
+overflow:hidden 也是可以滚动的，只是没有滚动条，在表现上无法滚动而已，如果发生锚点定位，或者改变 scrollTop 的值，就会发生滚动行为，根据这种特性我们可以实现很多效果
 
 实例一：实现选项卡
+
 ![image](../../assets/css/float/overflow3.png)
 
 ```html
@@ -243,9 +249,9 @@ overflow:hidden 也是可以滚动的，只是没有滚动条，在表现上无�
 </div>
 ```
 
-此效果乍一看很酷，但却有不少不足之处：其一，容器高度需要固定；其二，也是最麻烦的，就是“由内而外”的锚点定位会触发窗体的重定位，也就是说，如果页面也是可以滚动的，则点击选项卡按钮后页面会发生跳动，这种体验显然是非常不好的。(示例)[https://demo.cssworld.cn/6/4-2.php]
+此效果乍一看很酷，但却有不少不足之处：其一，容器高度需要固定；其二，也是最麻烦的，就是“由内而外”的锚点定位会触发窗体的重定位，也就是说，如果页面也是可以滚动的，则点击选项卡按钮后页面会发生跳动，这种体验显然是非常不好的。[示例](https://demo.cssworld.cn/6/4-2.php)
 
-有一种方法就是“focus 锚点定位”，只要定位的元素在浏览器窗体中，就不会触发窗体的滚动，也就是选项卡切换的时候页面不会发生跳动。(示例)[https://demo.cssworld.cn/6/4-3.php]
+有一种方法就是“focus 锚点定位”，只要定位的元素在浏览器窗体中，就不会触发窗体的滚动，也就是选项卡切换的时候页面不会发生跳动。[示例](https://demo.cssworld.cn/6/4-3.php)
 
 ```html
 <style>
