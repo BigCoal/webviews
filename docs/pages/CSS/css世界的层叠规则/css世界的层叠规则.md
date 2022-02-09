@@ -14,14 +14,6 @@
 
 ![image](../../assets/css/zIndex/zindex1.png)
 
-### 层叠上下文的特性
-
-
-- 层叠上下文的层叠水平要比普通元素高（原因后面会说明）。
-- 层叠上下文可以阻断元素的混合模式（参见 http://www.zhangxinxu.com/wordpress/?p=5155 的这篇文章的第二部分说明）。
-- 层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的“层叠上下文”。
-- 每个层叠上下文和兄弟元素独立，也就是说，当进行层叠变化或渲染的时候，只需要考虑后代元素。
-- 每个层叠上下文是自成体系的，当元素发生层叠的时候，整个元素被认为是在父层叠上下文的层叠顺序中。
 
 ### 层叠上下文的创建
 
@@ -38,40 +30,10 @@
 2. 定位元素与传统层叠上下文
 
    对于 position 值为 relative/absolute 以及 Firefox/IE 浏览器（不包括 Chrome 浏览器）下含有 position:fixed 声明的定位元素，当其 z-index 值不是 auto 的时候，会创建层叠上下文。
+   > Chrome 等 WebKit 内核浏览器下，position:fixed 元素天然层叠上下文元素，无须 z-index 为数值。
+   > IE6 和 IE7 浏览器有个 bug，就是 z-index:auto 的定位元素也会创建层叠上下文。
 
-   ```html
-   <div style="position:relative; z-index:auto;">
-     <!-- 美女 -->
-     <img src="1.jpg" style="position:absolute; z-index:2;" />
-   </div>
-   <div style="position:relative; z-index:auto;">
-     <!-- 美景 -->
-     <img src="2.jpg" style="position:relative; z-index:1;" />
-   </div>
-   ```
-
-   ![image](../../assets/css/zIndex/zindex3.png)
-
-   由于 z-index:auto 不会生成层叠上下文，根据`谁大谁上`所以美女在美景上面显示
-
-   ```html
-   <div style="position:relative; z-index:0;">
-     <!-- 美女 -->
-     <img src="1.jpg" style="position:absolute; z-index:2;" />
-   </div>
-   <div style="position:relative; z-index:0;">
-     <!-- 美景 -->
-     <img src="2.jpg" style="position:relative; z-index:1;" />
-   </div>
-   ```
-
-   ![image](../../assets/css/zIndex/zindex4.png)
-
-   z-index:0 会创建新的层叠上下文，`后来居上`，由于两个图片的父级层叠上下文已经有了层级区分，每个层叠上下文是自成体系的，所以美景在美女上面
-
-   IE6 和 IE7 浏览器有个 bug，就是 z-index:auto 的定位元素也会创建层叠上下文
-
-   Chrome 等 WebKit 内核浏览器下，position:fixed 元素天然层叠上下文元素，无须 z-index 为数值。
+   
 
 3. 其他 CSS3 属性
 
@@ -84,6 +46,16 @@
    - 元素的 will-change 属性值为上面 2 ～ 6 的任意一个（如 will-change:opacity、will-chang:transform 等）。
    - 元素的-webkit-overflow-scrolling 设为 touch
 
+
+### 层叠上下文的特性
+
+
+- 层叠上下文的层叠水平要比普通元素高（原因后面会说明）。
+- 层叠上下文可以阻断元素的混合模式（参见 http://www.zhangxinxu.com/wordpress/?p=5155 的这篇文章的第二部分说明）。
+- 层叠上下文可以嵌套，`内部层叠上下文`及其所有子元素均受制于`外部层叠上下文`。
+- 每个层叠上下文和兄弟元素独立，也就是说，当进行层叠变化或渲染的时候，只需要考虑后代元素。
+- 每个层叠上下文是自成体系的，当元素发生层叠的时候，整个元素被认为是在父层叠上下文的层叠顺序中。
+
 ## 层叠水平
 
 层叠水平决定了同一个层叠上下文中元素在 z 轴上的显示顺序
@@ -92,7 +64,7 @@
 
 ## 层叠顺序
 
-层叠顺序，英文称作 `stacking order`，表示元素发生层叠时有着特定的垂直显示顺序。
+层叠顺序表示元素发生层叠时有这特定的垂直显示顺序。
 
 ![image](../../assets/css/zIndex/zindex2.png)
 
@@ -109,6 +81,36 @@
 - 谁大谁上：当具有明显的`层叠水平`标识的时候，如生效的 z-index 属性值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。
 - 后来居上：当元素的`层叠水平`一致、层叠顺序相同的时候，在 DOM 流中处于后面的元素会覆盖前面的元素。
 
+  exp:
+  ```html
+    <div style="position:relative; z-index:auto;">
+      <!-- 美女 -->
+      <img src="1.jpg" style="position:absolute; z-index:2;" />
+    </div>
+    <div style="position:relative; z-index:auto;">
+      <!-- 美景 -->
+      <img src="2.jpg" style="position:relative; z-index:1;" />
+    </div>
+    ```
+
+    ![image](../../assets/css/zIndex/zindex3.png)
+
+    由于 z-index:auto 不会生成层叠上下文，根据`谁大谁上`所以美女在美景上面显示
+
+    ```html
+    <div style="position:relative; z-index:0;">
+      <!-- 美女 -->
+      <img src="1.jpg" style="position:absolute; z-index:2;" />
+    </div>
+    <div style="position:relative; z-index:0;">
+      <!-- 美景 -->
+      <img src="2.jpg" style="position:relative; z-index:1;" />
+    </div>
+    ```
+
+    ![image](../../assets/css/zIndex/zindex4.png)
+
+    z-index:0 会创建新的层叠上下文，`后来居上`，由于两个图片的父级层叠上下文已经有了层级区分，每个层叠上下文是自成体系的，所以美景在美女上面
 ## 层叠上下文与层叠顺序
 
 一旦普通元素具有了层叠上下文，其层叠顺序就会变高
@@ -117,15 +119,17 @@
 - 如果层叠上下文元素依赖 z-index 数值，则其层叠顺序由 z-index 值决定。
   ![image](../../assets/css/zIndex/zindex5.png)
 
-元素一旦成为定位元素，其 z-index 就会自动生效，此时其 z-index 就是默认的 auto，也就是 0 级别，根据上面的层叠顺序表，就会覆盖 inline 或 block 或 float 元素(示例)[https://demo.cssworld.cn/7/5-2.php]
+元素一旦成为定位元素，其 z-index 就会自动生效，此时其 z-index 就是默认的 auto，也就是 0 级别，根据上面的层叠顺序表，就会覆盖 inline 或 block 或 float 元素[示例](https://demo.cssworld.cn/7/5-2.php)
 
 ## z-index 负值深入理解
 
 z-index 负值的最终表现并不是单一的，而是与“层叠上下文”和“层叠顺序”密切相关”
 
 ![image](../../assets/css/zIndex/zindex6.png)
+
 z-index 负值元素的层级是在层叠上下文元素上面、block 元素的下面，也就是 z-index 虽然名为负数层级，但依然无法突破当前层叠上下文所包裹的小世界。
 
+exp:
 ```html
 <style>
   .box {
@@ -142,7 +146,7 @@ z-index 负值元素的层级是在层叠上下文元素上面、block 元素的
 </div>
 ```
 
-此时.box 是一个普普通通的元素，图片元素所在的层叠上下文元素一定是.box 的某个祖先元素。
+此时 `.box` 是一个普普通通的元素，图片元素所在的层叠上下文元素一定是 `.box` 的某个祖先元素。
 
 ![image](../../assets/css/zIndex/zindex7.png)
 
@@ -161,6 +165,7 @@ z-index 负值元素的层级是在层叠上下文元素上面、block 元素的
 ```
 
 最终表现如下图
+
 ![image](../../assets/css/zIndex/zindex8.png)
 
 可以这么说，z-index 负值渲染的过程就是一个寻找第一个层叠上下文元素的过程，然后层叠顺序止步于这个层叠上下文元素。
