@@ -314,6 +314,13 @@ module.exports = {
           ],
         },
         {
+          text: "Git",
+          collapsible: true,
+          children: [
+            "/pages/Git/版本管理.md",
+          ]
+        },
+        {
           text: "算法",
           collapsible: true,
           children: [
