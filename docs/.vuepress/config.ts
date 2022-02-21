@@ -102,6 +102,16 @@ module.exports = {
                 "/pages/CSS/流的破坏与保护/position-fixed.md"
               ]
             },
+            "/pages/CSS/css世界的层叠规则/css世界的层叠规则.md",
+            {
+              text: "强大的文本处理能力",
+              collapsible: true,
+              sidebarDepth: 10,
+              children: [
+                "/pages/CSS/强大的文本处理能力/font-size.md",
+                "/pages/CSS/强大的文本处理能力/font-family.md"
+              ]
+            },
           ]
         },
         {
@@ -154,7 +164,17 @@ module.exports = {
           collapsible: true,
           sidebarDepth: 10,
           children: [
-            // "/pages/Javascript/ES5规范",
+            {
+              text: "数据类型",
+              collapsible: true,
+              children: [
+                "/pages/Javascript/数据类型/数据类型与堆栈.md",
+                "/pages/Javascript/数据类型/null和undefined.md",
+                "/pages/Javascript/数据类型/int和bigInt.md",
+              ],
+            },
+            
+            "/pages/Javascript/正则/正则表达式.md",
             "/pages/Javascript/任务队列.md",
             "/pages/Javascript/typeof.md",
             "/pages/Javascript/Promise原理解析.md",
@@ -162,7 +182,8 @@ module.exports = {
             {
               text: "执行上下文系列",
               collapsible: true,
-              children: ["/pages/Javascript/词法作用域.md",
+              children: [
+                "/pages/Javascript/词法作用域.md",
                 "/pages/Javascript/执行上下文栈.md",
                 "/pages/Javascript/变量对象.md",
                 "/pages/Javascript/作用域链.md",
@@ -291,6 +312,16 @@ module.exports = {
               ],
             },
           ],
+        },
+        {
+          text: "算法",
+          collapsible: true,
+          children: [
+            "/pages/算法/堆与栈.md",
+            "/pages/算法/复杂度/时间复杂度.md",
+            "/pages/算法/哈希表/哈希表.md",
+            "/pages/算法/树/二叉树.md"
+          ]
         },
         {
           text: "源码解读",
