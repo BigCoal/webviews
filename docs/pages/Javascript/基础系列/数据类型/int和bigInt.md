@@ -8,8 +8,8 @@ JS 数字不区别整数与浮点数，只有 [Number 类型](https://so.csdn.ne
 
 IEEE 754 标准为 IEEE 二进位浮点数算术标准，是由美国电气电子工程师学会 (IEEE) 发布。IEEE 754 是最广泛使用的浮点数运算标准，为许多 CPU 与浮点运算器所采用，大部分编程语言都有提供 IEEE 格式与算术，但有些将其列为非必要的。
 
-![](../../assets/js/dataType/float1.png)
-![](../../assets/js/dataType/float2.png)
+![](../../../assets/js/dataType/float1.png)
+![](../../../assets/js/dataType/float2.png)
 
 1 位数符 + 11 位阶码 + 52 位尾数
 

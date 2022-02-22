@@ -9,10 +9,10 @@ module.exports = {
   head: [
     ["link", { rel: "icon", href: "/logo.png" }]
   ],
-  markdown:{
-    anchor:true
+  markdown: {
+    anchor: true
   },
-  
+
   // plugins: ['run'],
   // plugins: [
   //   'run',
@@ -44,10 +44,10 @@ module.exports = {
 
   theme: '@vuepress/theme-default',
   themeConfig: {
-    logo:"/logo.png",
+    logo: "/logo.png",
     search: true, //搜索
-    darkMode:false,
-    repo:"https://github.com/BigCoal/webviews",
+    darkMode: false,
+    repo: "https://github.com/BigCoal/webviews",
     searchMaxSuggestions: 12,
     navbar: [
       { text: "首页", link: "/" },
@@ -79,7 +79,7 @@ module.exports = {
                 "/pages/CSS/盒尺寸四大家族/Margin.md",
                 "/pages/CSS/盒尺寸四大家族/Border.md"
               ]
-            },{
+            }, {
               text: "内联元素和流",
               collapsible: true,
               sidebarDepth: 10,
@@ -88,7 +88,7 @@ module.exports = {
                 "/pages/CSS/内联元素和流/line-height.md",
                 "/pages/CSS/内联元素和流/vertical-align.md"
               ]
-            },{
+            }, {
               text: "流的破坏与保护",
               collapsible: true,
               sidebarDepth: 10,
@@ -165,71 +165,103 @@ module.exports = {
           sidebarDepth: 10,
           children: [
             {
-              text: "数据类型",
+              text: "基础系列",
               collapsible: true,
               children: [
-                "/pages/Javascript/数据类型/数据类型与堆栈.md",
-                "/pages/Javascript/数据类型/null和undefined.md",
-                "/pages/Javascript/数据类型/int和bigInt.md",
-              ],
+                {
+                  text: "数据类型",
+                  collapsible: true,
+                  children: [
+                    "/pages/Javascript/基础系列/数据类型/数据类型与堆栈.md",
+                    "/pages/Javascript/基础系列/数据类型/null和undefined.md",
+                    "/pages/Javascript/基础系列/数据类型/int和bigInt.md",
+                  ],
+                },
+
+                "/pages/Javascript/基础系列/正则/正则表达式.md",
+                "/pages/Javascript/基础系列/任务队列.md",
+                "/pages/Javascript/基础系列/typeof.md",
+                "/pages/Javascript/基础系列/Promise原理解析.md",
+                "/pages/Javascript/基础系列/原型到原型链.md",
+                {
+                  text: "执行上下文系列",
+                  collapsible: true,
+                  children: [
+                    "/pages/Javascript/基础系列/词法作用域.md",
+                    "/pages/Javascript/基础系列/执行上下文栈.md",
+                    "/pages/Javascript/基础系列/变量对象.md",
+                    "/pages/Javascript/基础系列/作用域链.md",
+                    "/pages/Javascript/基础系列/this.md",
+                    "/pages/Javascript/基础系列/深入执行上下文.md",
+                  ],
+                },
+                "/pages/Javascript/基础系列/闭包.md",
+                "/pages/Javascript/基础系列/类数组.md",
+                {
+                  text: "模拟实现系列",
+                  collapsible: true,
+                  children: [
+                    // 
+                    "/pages/Javascript/基础系列/call和apply的模拟实现.md",
+                    "/pages/Javascript/基础系列/bind模拟实现.md",
+                    "/pages/Javascript/基础系列/new的模拟实现.md"
+                  ],
+                },
+                {
+                  text: "性能优化",
+                  collapsible: true,
+                  children: ["/pages/Javascript/基础系列/缓存机制.md"],
+                },
+                {
+                  text: "本地存储和安全",
+                  collapsible: true,
+                  sidebarDepth: 10,
+                  children: [
+                    "/pages/Javascript/基础系列/同源策略.md",
+                    "/pages/Javascript/基础系列/cookie.md",
+                    "/pages/Javascript/基础系列/XSS攻击.md",
+                    "/pages/Javascript/基础系列/CSRF攻击.md",
+                  ],
+                },
+                {
+                  text: "类型转换",
+                  collapsible: true,
+                  sidebarDepth: 10,
+                  children: [
+                    "/pages/Javascript/基础系列/类型转换（上）.md",
+                    "/pages/Javascript/基础系列/类型转换（下）.md"
+                  ],
+                },
+                "/pages/Javascript/基础系列/创建对象的多种方式.md",
+                "/pages/Javascript/基础系列/继承的多种方式.md",
+              ]
             },
-            
-            "/pages/Javascript/正则/正则表达式.md",
-            "/pages/Javascript/任务队列.md",
-            "/pages/Javascript/typeof.md",
-            "/pages/Javascript/Promise原理解析.md",
-            "/pages/Javascript/原型到原型链.md",
             {
-              text: "执行上下文系列",
+              text: "专题系列",
               collapsible: true,
               children: [
-                "/pages/Javascript/词法作用域.md",
-                "/pages/Javascript/执行上下文栈.md",
-                "/pages/Javascript/变量对象.md",
-                "/pages/Javascript/作用域链.md",
-                "/pages/Javascript/this.md",
-                "/pages/Javascript/深入执行上下文.md",
-              ],
+                {
+                  text: "防抖与节流",
+                  collapsible: true,
+                  children: [
+                    "/pages/Javascript/专题系列/防抖与节流/防抖.md",
+                    "/pages/Javascript/专题系列/防抖与节流/节流.md"
+                  ],
+                },
+                {
+                  text: "数组系列",
+                  collapsible: true,
+                  children: [
+                    "/pages/Javascript/专题系列/数组系列/数组去重.md",
+                    "/pages/Javascript/专题系列/数组系列/数组扁平化.md",
+                    "/pages/Javascript/专题系列/数组系列/数组查找指定元素.md",
+                    "/pages/Javascript/专题系列/数组系列/数组最大值最小值.md"
+                  ],
+                },
+                "/pages/Javascript/专题系列/类型判断.md",
+                "/pages/Javascript/专题系列/深浅拷贝.md",
+              ]
             },
-            "/pages/Javascript/闭包.md",
-            "/pages/Javascript/类数组.md",
-            {
-              text: "模拟实现系列",
-              collapsible: true,
-              children: [
-                // 
-                "/pages/Javascript/call和apply的模拟实现.md",
-                "/pages/Javascript/bind模拟实现.md",
-                "/pages/Javascript/new的模拟实现.md"
-              ],
-            },
-            {
-              text: "性能优化",
-              collapsible: true,
-              children: ["/pages/Javascript/缓存机制.md"],
-            },
-            {
-              text: "本地存储和安全",
-              collapsible: true,
-              sidebarDepth: 10,
-              children: [
-                "/pages/Javascript/同源策略.md",
-                "/pages/Javascript/cookie.md",
-                "/pages/Javascript/XSS攻击.md",
-                "/pages/Javascript/CSRF攻击.md",
-            ],
-            },
-            {
-              text: "类型转换",
-              collapsible: true,
-              sidebarDepth: 10,
-              children: [
-                "/pages/Javascript/类型转换（上）.md",
-                "/pages/Javascript/类型转换（下）.md"
-              ],
-            },
-            "/pages/Javascript/创建对象的多种方式.md",
-            "/pages/Javascript/继承的多种方式.md",
           ]
         },
         {

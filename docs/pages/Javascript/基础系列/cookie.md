@@ -28,10 +28,10 @@ Cookie
 ### Cookie 的查看
 
 我们可以在浏览器的开发者工具中查看到当前页面的 Cookie：
-![](../assets/js/cookie/cookie1.jpeg)
+![](../../assets/js/cookie/cookie1.jpeg)
 尽管我们在浏览器里查看到了 Cookie，这并不意味着 Cookie 文件只是存放在浏览器里的。实际上，Cookies 相关的内容还可以存在本地文件里，就比如说 Mac 下的 Chrome，存放目录就是 `~/Library/Application Support/Google/Chrome/Default`，里面会有一个名为 Cookies 的数据库文件，你可以使用 sqlite 软件打开它：
 
-![](../assets/js/cookie/cookie2.png)
+![](../../assets/js/cookie/cookie2.png)
 
 存放在本地的好处就在于即使你关闭了浏览器，Cookie 依然可以生效。
 
@@ -48,21 +48,21 @@ Cookie
 
 我们在请求返回的 Response Headers 可以看到 Set-Cookie 字段：
 
-![](../assets/js/cookie/cookie3.jpeg)
+![](../../assets/js/cookie/cookie3.jpeg)
 
 然后我们查看下 Cookie：
 
-![](../assets/js/cookie/cookie4.jpeg)
+![](../../assets/js/cookie/cookie4.jpeg)
 
 我们刷新一遍页面，再看下这个请求，可以在 Request Headers 看到 cookie 字段：
 
-![](../assets/js/cookie/cookie5.jpeg)
+![](../../assets/js/cookie/cookie5.jpeg)
 
 ### Cookies 的属性
 
 在下面这张图里我们可以看到 Cookies 相关的一些属性：
 
-![](../assets/js/cookie/cookie6.jpeg)
+![](../../assets/js/cookie/cookie6.jpeg)
 
 这里主要说一些大家可能没有注意的点：
 
@@ -160,7 +160,7 @@ SameSite 可以有下面三种值：
 
 接下来看下从 None 改成 Lax 到底影响了哪些地方的 Cookies 的发送？直接来一个图表：
 
-![](../assets/js/cookie/cookie7.png)
+![](../../assets/js/cookie/cookie7.png)
 
 从上图可以看出，对大部分 web 应用而言，Post 表单，iframe，AJAX，Image 这四种情况从以前的跨站会发送三方 Cookie，变成了不发送。
 
@@ -201,7 +201,7 @@ Image：图片一般放 CDN，大部分情况不需要 Cookie，故影响有限�
 
 以 Adobe 网站为例：[https://www.adobe.com/sea/](https://www.adobe.com/sea/)，查看请求可以看到：
 
-![](../assets/js/cookie/cookie8.jpeg)
+![](../../assets/js/cookie/cookie8.jpeg)
 
 不过也会有两点要注意的地方：
 
