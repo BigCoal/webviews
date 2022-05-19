@@ -10,15 +10,6 @@
 
 跨源域资源共享（[CORS](https://developer.mozilla.org/zh-CN/docs/Glossary/CORS)）机制允许 Web 应用服务器进行跨源访问控制，从而使跨源数据传输得以安全进行。现代浏览器支持在 API 容器中（例如 [`XMLHttpRequest`](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 或 [Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)）使用 CORS，以降低跨源 HTTP 请求所带来的风险。
 
-[谁应该读这篇文章？](#谁应该读这篇文章？ "Permalink to 谁应该读这篇文章？")
-------------------------------------------------
-
-说实话，每个人。
-
-更具体地来讲，这篇文章适用于 **网站管理员**、**后端和前端开发者**。现代浏览器处理跨源资源共享的客户端部分，包括 HTTP 头和相关策略的执行。但是这一新标准意味着服务器需要处理新的请求头和响应头。
-
-[什么情况下需要 CORS ？](#什么情况下需要_cors_？ "Permalink to 什么情况下需要 CORS ？")
----------------------------------------------------------------
 
 [功能概述](#功能概述 "Permalink to 功能概述")
 ---------------------------------
@@ -54,7 +45,7 @@ CORS 请求失败会产生错误，但是为了安全，在 JavaScript 代码层
 
 比如说，假如站点 `https://foo.example` 的网页应用想要访问 `https://bar.other` 的资源。`foo.example` 的网页中可能包含类似于下面的 JavaScript 代码：
 
-```http
+```js
 const xhr = new XMLHttpRequest();
 const url = 'https://bar.other/resources/public-data/';
 
@@ -62,10 +53,6 @@ xhr.open('GET', url);
 xhr.onreadystatechange = someHandler;
 xhr.send();
 ```
-
-客户端和服务器之间使用 CORS 首部字段来处理权限：
-
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACbklEQVRoQ+2aMU4dMRCGZw6RC1CSSyQdLZJtKQ2REgoiRIpQkCYClCYpkgIESQFIpIlkW+IIcIC0gUNwiEFGz+hlmbG9b1nesvGW++zxfP7H4/H6IYzkwZFwQAUZmpJVkSeniFJKA8ASIi7MyfkrRPxjrT1JjZ8MLaXUDiJuzwngn2GJaNd7vyP5IoIYY94Q0fEQIKIPRGS8947zSQTRWh8CwLuBgZx479+2BTkHgBdDAgGAC+fcywoyIFWqInWN9BSONbTmFVp/AeA5o+rjKRJ2XwBYRsRXM4ZXgAg2LAPzOCDTJYQx5pSIVlrC3EI45y611osMTHuQUPUiYpiVooerg7TWRwDAlhSM0TuI+BsD0x4kGCuFSRVzSqkfiLiWmY17EALMbCAlMCmI6IwxZo+INgQYEYKBuW5da00PKikjhNNiiPGm01rrbwDwofGehQjjNcv1SZgddALhlJEgwgJFxDNr7acmjFLqCyJuTd6LEGFttpmkYC91Hrk3s1GZFERMmUT01Xv/sQljjPlMRMsxO6WULwnb2D8FEs4j680wScjO5f3vzrlNJszESWq2LYXJgTzjZm56MCHf3zVBxH1r7ftU1splxxKYHEgoUUpTo+grEf303rPH5hxENJqDKQEJtko2q9zGeeycWy3JhpKhWT8+NM/sufIhBwKI+Mta+7pkfxKMtd8Qtdbcx4dUQZcFCQ2I6DcAnLUpf6YMPxhIDDOuxC4C6djoQUE6+tKpewWZ1wlRkq0qUhXptKTlzv93aI3jWmE0Fz2TeujpX73F9TaKy9CeMk8vZusfBnqZ1g5GqyIdJq+XrqNR5AahKr9CCcxGSwAAAABJRU5ErkJggg==)
 
 以下是浏览器发送给服务器的请求报文：
 
@@ -119,7 +106,7 @@ Access-Control-Allow-Origin: https://foo.example
 
 如下是一个需要执行预检请求的 HTTP 请求：
 
-```http
+```js
 const xhr = new XMLHttpRequest();
 xhr.open('POST', 'https://bar.other/resources/post-here/');
 xhr.setRequestHeader('X-PINGOTHER', 'pingpong');
@@ -250,7 +237,7 @@ CORS 最初要求浏览器具有该行为，不过在后续的 [修订](https://
 
 本例中，`https://foo.example` 的某脚本向 `https://bar.other` 发起一个 GET 请求，并设置 Cookies：
 
-```http
+```js
 const invocation = new XMLHttpRequest();
 const url = 'https://bar.other/resources/credentialed-content/';
 
@@ -336,25 +323,21 @@ Cookie 策略受 [SameSite](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/He
 [HTTP 响应首部字段](#http_响应首部字段 "Permalink to HTTP 响应首部字段")
 ------------------------------------------------------
 
-本节列出了规范所定义的响应首部字段。上一小节中，我们已经看到了这些首部字段在实际场景中是如何工作的。
-
 ### [Access-Control-Allow-Origin](#access-control-allow-origin "Permalink to Access-Control-Allow-Origin")
 
 响应首部中可以携带一个 [`Access-Control-Allow-Origin`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) 字段，其语法如下：
 
-```httpjs
+```http
 Access-Control-Allow-Origin: <origin> | *
-
 ```
 
 其中，origin 参数的值指定了允许访问该资源的外域 URI。对于不需要携带身份凭证的请求，服务器可以指定该字段的值为通配符，表示允许来自所有域的请求。
 
 例如，下面的字段值将允许来自 `https://mozilla.org` 的请求：
 
-```httpjs
+```http
 Access-Control-Allow-Origin: https://mozilla.org
 Vary: Origin
-
 ```
 
 如果服务端指定了具体的域名而非 “*”，那么响应首部中的 [`Vary`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Vary) 字段的值必须包含 [`Origin`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Origin)。这将告诉客户端：服务器对不同的源站返回不同的内容。
@@ -416,21 +399,5 @@ origin 参数的值为源站 URI。它不包含任何路径信息，只是服务
 
 ### [Access-Control-Request-Method](#access-control-request-method "Permalink to Access-Control-Request-Method")
 
-[规范](#规范 "Permalink to 规范")
----------------------------
 
-[浏览器兼容性](#浏览器兼容性 "Permalink to 浏览器兼容性")
----------------------------------------
-
-[Report problems with this compatibility data on GitHub](https://github.com/mdn/browser-compat-data/issues/new?body=%3C%21--+Tips%3A+where+applicable%2C+specify+browser+name%2C+browser+version%2C+and+mobile+operating+system+version+--%3E%0A%0A%23%23%23%23+What+information+was+incorrect%2C+unhelpful%2C+or+incomplete%3F%0A%0A%23%23%23%23+What+did+you+expect+to+see%3F%0A%0A%23%23%23%23+Did+you+test+this%3F+If+so%2C+how%3F%0A%0A%0A%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EMDN+page+report+details%3C%2Fsummary%3E%0A%0A*+Query%3A+%60http.headers.Access-Control-Allow-Origin%60%0A*+MDN+URL%3A+https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTTP%2FCORS%0A*+Report+started%3A+2022-03-11T08%3A07%3A42.186Z%0A%0A%3C%2Fdetails%3E&title=http.headers.Access-Control-Allow-Origin+-+%3CPUT+TITLE+HERE%3E "Report an issue with this compatibility data")
-
-### Legend
-
-Full support
-
-Full support
-
-The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
-
-[参见](#参见 "Permalink to 参见")
----------------------------
+### [Access-Control-Request-Headers](#access-control-request-method "Permalink to Access-Control-Request-Method")

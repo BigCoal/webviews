@@ -68,7 +68,13 @@ module.exports = {
           collapsible: true,
           children: [
             "/pages/HTTP/跨源资源共享 (CORS).md",
-            "/pages/HTTP/Content-Security-Policy.md",
+            {
+              text: "HTTP安全",
+              collapsible: true,
+              children: [
+                "/pages/HTTP/HTTP安全/内容安全策略( CSP ).md",
+              ]
+            },
             "/pages/HTTP/HTTP 缓存.md",
             "/pages/HTTP/HTTP 请求方法.md",
             "/pages/HTTP/HTTP 消息.md",
