@@ -56,6 +56,29 @@ module.exports = {
     // 侧边栏
     sidebar:
       [
+        // {
+        //   text: "English",
+        //   collapsible: true,
+        //   children: [
+        //     "/pages/English/新概念/新概念1/1 Excuse me.md",
+        //   ]
+        // },
+        {
+          text: "HTTP",
+          collapsible: true,
+          children: [
+            "/pages/HTTP/跨源资源共享 (CORS).md",
+            "/pages/HTTP/Content-Security-Policy.md",
+            "/pages/HTTP/HTTP 缓存.md",
+            "/pages/HTTP/HTTP 请求方法.md",
+            "/pages/HTTP/HTTP 消息.md",
+            "/pages/HTTP/HTTP cookies.md",
+            "/pages/HTTP/HTTP Headers.md",
+            "/pages/HTTP/HTTP_1.x 的连接管理.md",
+            "/pages/HTTP/浏览器的工作原理.md",
+            
+          ]
+        },
         {
           text: "HTML",
           collapsible: true,
@@ -255,11 +278,36 @@ module.exports = {
                     "/pages/Javascript/专题系列/数组系列/数组去重.md",
                     "/pages/Javascript/专题系列/数组系列/数组扁平化.md",
                     "/pages/Javascript/专题系列/数组系列/数组查找指定元素.md",
-                    "/pages/Javascript/专题系列/数组系列/数组最大值最小值.md"
+                    "/pages/Javascript/专题系列/数组系列/数组最大值最小值.md",
+                    "/pages/Javascript/专题系列/数组系列/数组乱序.md",
+                    "/pages/Javascript/专题系列/数组系列/v8 排序源码.md",
                   ],
                 },
-                "/pages/Javascript/专题系列/类型判断.md",
+                {
+                  text: "类型判断",
+                  collapsible: true,
+                  children: [
+                    "/pages/Javascript/专题系列/类型判断/类型判断(上).md",
+                    "/pages/Javascript/专题系列/类型判断/类型判断(下).md"
+                  ],
+                },{
+                  text: "函数",
+                  collapsible: true,
+                  children: [
+                    "/pages/Javascript/专题系列/函数系列/惰性函数.md",
+                    "/pages/Javascript/专题系列/函数系列/函数记忆.md",
+                    "/pages/Javascript/专题系列/函数系列/函数柯里化.md",
+                    "/pages/Javascript/专题系列/函数系列/函数组合.md",
+                    "/pages/Javascript/专题系列/函数系列/偏函数.md",
+                    "/pages/Javascript/专题系列/函数系列/递归.md",
+                   
+                  ],
+                },
                 "/pages/Javascript/专题系列/深浅拷贝.md",
+                "/pages/Javascript/专题系列/判断两个对象相等.md",
+                "/pages/Javascript/专题系列/实现 jQuery 的 each .md",
+                "/pages/Javascript/专题系列/实现 jquery 的 extend.md",
+                "/pages/Javascript/专题系列/垃圾回收.md",
               ]
             },
           ]
@@ -350,8 +398,10 @@ module.exports = {
           collapsible: true,
           children: [
             "/pages/Git/版本管理.md",
+            "/pages/Git/commit合并.md",
           ]
         },
+        
         {
           text: "算法",
           collapsible: true,
@@ -370,6 +420,12 @@ module.exports = {
             collapsible: true,
             children: ["/pages/codeAnalysis/敬请期待.md"],
           }]
+        },{
+          text: "技术方案",
+          collapsible: true,
+          children: [
+            "/pages/技术方案/前端技术实现文件预览.md"
+          ]
         },
         // "pages/微前端",
         // {
