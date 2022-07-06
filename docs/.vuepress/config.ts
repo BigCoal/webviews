@@ -558,6 +558,8 @@ module.exports = {
           text: "算法",
           collapsible: true,
           children: [
+            "/pages/算法/位运算/位运算(上).md",
+            "/pages/算法/位运算/位运算(下).md",
             "/pages/算法/堆与栈.md",
             "/pages/算法/复杂度/时间复杂度.md",
             "/pages/算法/哈希表/哈希表.md",
