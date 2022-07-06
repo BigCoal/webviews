@@ -4,17 +4,17 @@
 
 音节是以元音为主题构成的发音单位，音节通常分为4类
 - 开音节
-    ![lesson](./img/开音节.png)
+    <!-- ![lesson](./img/开音节.png) -->
 - 闭音节
-    ![lesson](./img/开音节.png)
+    <!-- ![lesson](./img/开音节.png) -->
 - -r/-re音节
-    ![lesson](./img/开音节.png)
+    <!-- ![lesson](./img/开音节.png) -->
 - 元音字母组合音节
-    ![lesson](./img/开音节.png)
+    <!-- ![lesson](./img/开音节.png) -->
 
 
 ## New words and expression
-![新词](./img/lesson7.png)
+<!-- ![新词](./img/lesson7.png) -->
 
 
 ## Article

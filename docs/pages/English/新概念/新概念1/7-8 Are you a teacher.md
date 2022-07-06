@@ -22,7 +22,7 @@
 
 
 ## New words and expression
-![新词](./img/lesson5.png)
+<!-- ![新词](./img/lesson5.png) -->
 
 ### Japanese
 -  n.日本人 日语
@@ -103,8 +103,8 @@ Mrs.Lee is not German,either
 
 ## What make is it?
 
-![lesson](./img/lesson6.png)
-![lesson](./img/lesson61.png)
+<!-- ![lesson](./img/lesson6.png)
+![lesson](./img/lesson61.png) -->
 
 ### make
 - n.牌子
