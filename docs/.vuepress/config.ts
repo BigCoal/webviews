@@ -309,6 +309,12 @@ module.exports = {
                     "/pages/Javascript/基础系列/数据类型/int和bigInt.md",
                   ],
                 },
+                {
+                  text: "Ajax",
+                  collapsible: true,
+                  children: ["/pages/Javascript/基础系列/ajax/Ajax.md"],
+                },
+
                 "/pages/Javascript/基础系列/严格模式.md",
                 "/pages/Javascript/基础系列/正则/正则表达式.md",
                 "/pages/Javascript/基础系列/任务队列.md",
