@@ -339,7 +339,6 @@ module.exports = {
                   text: "模拟实现系列",
                   collapsible: true,
                   children: [
-                    //
                     "/pages/Javascript/基础系列/call和apply的模拟实现.md",
                     "/pages/Javascript/基础系列/bind模拟实现.md",
                     "/pages/Javascript/基础系列/new的模拟实现.md",
@@ -347,8 +346,12 @@ module.exports = {
                 },
                 {
                   text: "性能优化",
-                  collapsible: true,
-                  children: ["/pages/Javascript/基础系列/缓存机制.md"],
+                  collapsible: false,
+                  sidebarDepth: 4,
+                  children: [
+                    "/pages/Javascript/基础系列/性能优化/缓存机制.md",
+                    "/pages/Javascript/基础系列/性能优化/性能优化.md",
+                  ],
                 },
                 {
                   text: "本地存储和安全",
