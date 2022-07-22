@@ -236,6 +236,10 @@ module.exports = {
           collapsible: true,
           children: [
             "/pages/HTTP/TCP协议详解.md",
+            "/pages/HTTP/DNS原理入门.md",
+            "/pages/HTTP/CDN原理入门.md",
+            "/pages/HTTP/浏览器、DNS、CDN缓存.md",
+            "/pages/HTTP/http缓存与cdn缓存配置指南.md",
             "/pages/HTTP/Data-URL.md",
             "/pages/HTTP/HTTP Headers.md",
             "/pages/HTTP/HTTP cookies.md",
