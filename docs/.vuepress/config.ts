@@ -235,6 +235,7 @@ module.exports = {
           text: "HTTP",
           collapsible: true,
           children: [
+            "/pages/HTTP/HTTP发展历程.md",
             "/pages/HTTP/TCP协议详解.md",
             "/pages/HTTP/DNS原理入门.md",
             "/pages/HTTP/CDN原理入门.md",
