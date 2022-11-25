@@ -250,7 +250,7 @@ module.exports = {
             // "/pages/HTTP/HTTP 请求的响应头部 Vary 的理解.md",
             // "/pages/HTTP/HTTP 详解长短连接，管道化，队头阻塞及它们之间的关系.md",
             // "/pages/HTTP/HTTP2四大核心特性.md",
-            // "/pages/HTTP/HTTPS.md",
+            "/pages/HTTP/HTTPS.md",
             // "/pages/HTTP/HTTP_1.x 的连接管理.md",
             // "/pages/HTTP/HTTP安全",
             // "/pages/HTTP/HTTP概述.md",
@@ -624,12 +624,15 @@ module.exports = {
           text: "算法",
           collapsible: true,
           children: [
-            "/pages/算法/位运算/位运算(上).md",
-            "/pages/算法/位运算/位运算(下).md",
-            "/pages/算法/堆与栈.md",
-            "/pages/算法/复杂度/时间复杂度.md",
-            "/pages/算法/哈希表/哈希表.md",
-            "/pages/算法/树/二叉树.md",
+            {
+              text: "基础",
+              collapsible: true,
+              children: [
+                "/pages/算法/整理/基础/运算符优先级.md",
+                "/pages/算法/整理/基础/原码、反码、补码.md",
+                "/pages/算法/整理/基础/位运算.md",
+              ],
+            },
           ],
         },
         {
